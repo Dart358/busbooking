@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Controllers;
@@ -83,7 +82,7 @@ class UserController extends ResourceController // UserController class that ext
     }
 
     $model = new UserModel(); // Create a new UserModel instance
-    if ($model->update($id, $data)) { // If the update is successful
+    if ($model->update($id, (object)$data)) { // If the update is successful
         return $this->respondUpdated($data, 'User profile updated'); // Return a response indicating the user profile was updated
     } else {
         return $this->failServerError('Unable to update user profile'); // Return an error
